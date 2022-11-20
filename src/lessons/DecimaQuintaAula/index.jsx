@@ -9,7 +9,7 @@ export function DecimaQuintaAula() {
 
     const [locations, setLocations] = useState([])
     const [cep, setCep] = useState('')
-
+    
     function searchCep(cepRecieved) {
 
         setCep(cepRecieved)
@@ -23,7 +23,7 @@ export function DecimaQuintaAula() {
 
                             if(address.erro !== undefined) {
 
-                                // Deu erro
+                                return alert('please add valid cep')
 
                             } else {
 
@@ -43,9 +43,8 @@ export function DecimaQuintaAula() {
 
 
     function deleteLocation(currentLocation) {
-
-        console.log(currentLocation)
-
+        const data = locations.filter(i => i.cep !== currentLocation.cep)
+        setLocations(data)
     }
 
     return(
